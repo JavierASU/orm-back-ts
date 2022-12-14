@@ -14,6 +14,9 @@ export class Desviar extends BaseEntity {
   id: number;
 
   @Column()
+  UserId: string;
+
+  @Column()
   desviado: string;
 
   @Column()

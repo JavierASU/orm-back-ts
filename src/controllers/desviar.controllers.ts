@@ -16,14 +16,14 @@ export const getDesviar = async (req: Request, res: Response) => {
 
 export const createDesviar = async (req: Request, res: Response) => {
   try {
-    const { id, desviado, inputdesviar } = req.body;
-    const isExist = await Desviar.findOne({ where: { id: id } });
+    const { UserId, desviado, inputdesviar } = req.body;
+    const isExist = await Desviar.findOne({ where: { UserId: UserId } });
 
     if (isExist) {
       res.status(400).json({ message: "El ID ya existe" });
     } else {
       const user = new Desviar();
-      user.id = id;
+      user.UserId = UserId;
       user.desviado = desviado;
       user.inputdesviar = inputdesviar;
 
