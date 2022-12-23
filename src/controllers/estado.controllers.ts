@@ -16,7 +16,7 @@ export const getEstado = async (req: Request, res: Response) => {
 
 export const createEstado = async (req: Request, res: Response) => {
   try {
-    const { UserId, estado } = req.body;
+    const { UserId, estado, momento } = req.body;
     const isExist = await Estado.findOne({ where: { UserId: UserId } });
 
     if (isExist) {
@@ -25,6 +25,7 @@ export const createEstado = async (req: Request, res: Response) => {
       const user = new Estado();
       user.UserId = UserId;
       user.estado = estado;
+      user.momento = momento;
 
       await user.save();
       console.log(user);
