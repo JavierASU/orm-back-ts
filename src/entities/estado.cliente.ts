@@ -19,9 +19,6 @@ export class Estado extends BaseEntity {
   @Column()
   estado: string;
 
-  @Column()
-  momento: String;
-
   @Column({
     default: true,
   })
